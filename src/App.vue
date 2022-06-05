@@ -39,7 +39,51 @@
       1.)    'the-header' :  TheHeader,     - key- kebab-case and value -PascalCase
       2.)   TheHeader :  TheHeader,  - PascalCase
       3.)   TheHeader                         ES6 - syntax if key/value matches you can remove the value
+
+
     -->
+
+
+        <!-- STYLING ---
+    
+    - Styling added to App.vue needs to be Global if there is no scoped keyword
+
+    -This means that the following styles are Global and will be used in all components
+
+        <style>
+            html {
+              font-family: sans-serif;
+            }
+
+            body {
+              margin: 0;
+            }
+        </style>
+
+    - However <style scoped></style> with an attribute scoped means that they are only local to those components they have been defined
+
+    -In short , it would be nice to scope this styles to just the components they are used in
+
+    -Means that the styles will only affect the template in which you define them
+
+    -This tells Vue that the styles defined there only affect the template that lives there
+
+    -IF you inspect vue does this by giving them a specific ID
+
+    e.g
+            header[data-v-9a9f6144] {
+                width: 100%;
+                height: 5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #14005e;
+                }
+    -->
+
+
+
+    
 
 
 
