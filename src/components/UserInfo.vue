@@ -47,17 +47,30 @@
       -And then adding a v-slot:default to the template tag;
 
       -default is a reserved keyword and like the name applies it wlways targets the default slot
+
+         -But we have another $slots which is another property  provide by Vue and it holds info about the slot data this component recieves for it's different slots
+
+    -There is a shorthand for v-slot i.e the #symbol
+
+    -Means you can write it as
+    v-slot:header or #header
+
+     <template #header>
+        <h3>{{ fullName }}</h3>
+        <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
+      </template>
+
  -->
 
 
 <template>
   <section>
     <base-card>
-      <template v-slot:header>
+      <template #header>
         <h3>{{ fullName }}</h3>
         <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
       </template>
-      <template v-slot:default>
+      <template #default>
         <p>{{ infoText }}</p>
       </template>
     </base-card>
@@ -70,10 +83,3 @@ export default {
 };
 </script>
 
-<style scoped>
-section header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-</style>

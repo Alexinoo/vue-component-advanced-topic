@@ -50,13 +50,37 @@
 
     -And now you can assign the content to the different slots
 
+     -->
+
+
+    <!-- MORE ON SLOTS
+
+    -We can add default content by Adding Content between our slots tag 
+
+    e.g. 
+         <slot name="header">
+         
+         <h2>Default</h2>
+         </slot>
+
+    -This might not be visible because all the places we have use v-slot:header do provide content for the header slot
+
+    -But we have another $slots which is another property  provide by Vue and it holds info about the slot data this component recieves for it's different slots
+
+    -There is a shorthand for v-slot i.e the #symbol
+
+    -Means you can write it as
+    v-slot:header or #header
+
 
  -->
 
 <template>
     <div>
-        <header>
-            <slot name="header"></slot>
+        <header v-if="$slots.header">
+            <slot name="header">
+                <!-- <h2>The Default</h2> -->
+            </slot>
         </header>
         <slot></slot>
     </div>
@@ -65,11 +89,21 @@
 <script>
 
 export default {
+    mounted(){
+        console.log(this.$slots.header);
+    }
 }
 
 </script>
 
 <style scoped>
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 div {
     margin: 2rem auto;

@@ -43,6 +43,16 @@ e.g.
 
       -default is a reserved keyword and like the name applies it wlways targets the default slot
 
+        -There is a shorthand for v-slot i.e the #symbol
+
+    -Means you can write it as
+    v-slot:header or #header
+
+     <template #header>
+        <h3>{{ fullName }}</h3>
+        <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
+      </template>
+
 
 
  -->
@@ -50,11 +60,11 @@ e.g.
 <template>
   <section>
     <base-card>
-      <template v-slot:header>
+      <template #header>
         <h2>Available Badges</h2>
       </template>
 
-      <template v-slot:default>
+      <template #default>
         <ul>
           <li>
             <base-badge type="admin" caption="ADMIN"></base-badge>
