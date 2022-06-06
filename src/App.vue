@@ -126,6 +126,20 @@
        <active-goals v-if="selectedComponent === 'active-goals'"></active-goals>
        <manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals>
 
+       -->
+
+    <!-- KEEPING DYNAMIC COMPONENTS ALIVE ---
+
+    -Let's say in ManageGoals we have an input field where the user is able to enter some goal name
+
+    -But here is a problem we will face with that :
+
+    -Our input is lost once we switch tho the Active goals - It's removed from the DOM when we switches to Active Goals tabs and then re-rendered afresh after we switch back to Manage Goals tab
+
+    -To avoid this we wrap our dynamic component with <keep-alive></keep-alive>
+
+    -<keep-alive></keep-alive> is a Vue component  that tellse Vue not to remove the CONTENT entirely from the DOM but save their state somewhere
+
 
      -->   
 
@@ -147,8 +161,9 @@
     <!-- <active-goals v-if="selectedComponent === 'active-goals'"></active-goals>
     <manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals> -->
 
-    <component :is="selectedComponent"></component>
-
+    <keep-alive>
+      <component :is="selectedComponent"></component>
+    </keep-alive>
   </div>
 </template>
 
